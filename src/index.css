@@ -3,4 +3,18 @@
 @tailwind utilities;
 
 
+  .custom-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Styling for the active tab */
+  .custom-tab[aria-selected="true"] {
+    background-color: #B4F9BA;
+    outline: none;
+    border-radius: 10px;
+    
+  }
 
+  

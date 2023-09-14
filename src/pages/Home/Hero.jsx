@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="mt-10">
       <div className="lg:flex gap-10 justify-center items-center ">
-        <div className="w-1/2 leading-10 space-y-3">
+        <div className="lg:w-1/2 leading-10 space-y-3">
             <h2 className="bg-green-400 w-16 rounded-full text-slate-600 font-semibold leading-none p-3">
                 News
             </h2>
@@ -18,7 +18,7 @@ const Hero = () => {
           </p>
           <p className="text-slate-500 text-[12px]">September 11, 2023</p>
         </div>
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
           <img className="rounded" src={image} alt="" />
         </div>
       </div>
