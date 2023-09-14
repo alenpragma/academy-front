@@ -56,7 +56,7 @@ const News = () => {
   return (
     <section className="mt-20 mb-20">
       <Tabs>
-        <TabList className="lg:flex justify-center gap-5">
+        <TabList className="lg:flex justify-between text-center">
           <Tab className="custom-tab">all</Tab>
           <Tab className="custom-tab">commiunity</Tab>
           <Tab className="custom-tab">featured</Tab>

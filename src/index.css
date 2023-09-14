@@ -4,7 +4,11 @@
 
 
   .custom-tab {
-    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    width: 150px;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
@@ -13,8 +17,7 @@
   .custom-tab[aria-selected="true"] {
     background-color: #B4F9BA;
     outline: none;
-    border-radius: 10px;
-    
+    border-radius: 20px;
   }
 
   
