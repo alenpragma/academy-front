@@ -8,6 +8,16 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
+  const navItem = (
+    <>
+      <li className="hover:text-[#41ea4f] font-bold">Home</li>
+      <li>News</li>
+      <li>Payment</li>
+      <li>Academy</li>
+      <li>Docs</li>
+    </>
+  );
+
   return (
     <nav className="w-full bg-white z-10 lg:mx-0">
       <div className="flex justify-between items-center px-0 py-5">
@@ -17,24 +27,20 @@ const Navbar = () => {
           </div>
           <div className="lg:flex hidden">
             <ul className="flex justify-center gap-5 items-center">
-              <li className="hover:text-[#41ea4f] font-bold">Home</li>
-              <li>News</li>
-              <li>Payment</li>
-              <li>Academy</li>
-              <li>Docs</li>
+            {navItem}
             </ul>
           </div>
         </div>
         <div className="flex justify-end items-center">
-          <form className="flex justify-end w-4/12 p-2 relative">
+          <form className="flex justify-end lg:w-6/12 w-6/12 p-2 relative">
             <input
               type="text"
               name=""
               id=""
-              className="border border-black w-52 p-1 rounded"
+              className="border border-black w-52 px-5 py-2 rounded-3xl"
               placeholder="search"
             />
-            <FiSearch className="text-[20px] flex items-center justify-center absolute top-0 bottom-0 my-auto right-3 cursor-pointer text-black " />
+            <FiSearch className="text-[20px] flex items-center justify-center absolute top-0 bottom-0 my-auto right-5 cursor-pointer text-black " />
           </form>
           <Link to="/">
             <FcGoogle className="text-2xl" />
@@ -55,11 +61,7 @@ const Navbar = () => {
             } absolute right-0 left-0 mx-auto top-20 origin-top-right btransition-transform transformg-white duration-200 bg-white`}
           >
             <ul className="flex flex-col gap-8 pb-8 justify-center items-center w-full shadow-md">
-              <li className="hover:text-[#41ea4f] font-bold">Home</li>
-              <li>News</li>
-              <li>Payment</li>
-              <li>Academy</li>
-              <li>Docs</li>
+              {navItem}
             </ul>
           </div>
         </div>

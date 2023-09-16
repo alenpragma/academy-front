@@ -10,49 +10,65 @@ const News = () => {
       details:
         "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
       date: "September 12, 2023",
-      category: "community",
+      category: "commiunity",
     },
     {
       img: "https://i.ibb.co/Zm6cdnP/news.png",
-      title: "The Ultimate Guide to Blockchain for Business",
+      title: "Unlocking Efficiency: How Blockchain Transforms Business Payments",
       details:
         "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
       date: "September 12, 2023",
-      category: "community",
+      category: "featured",
     },
     {
       img: "https://i.ibb.co/Zm6cdnP/news.png",
-      title: "The Ultimate Guide to Blockchain for Business",
+      title: "How to Use Fuse Token Bridge",
       details:
         "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
       date: "September 12, 2023",
-      category: "community",
+      category: "newses",
     },
     {
       img: "https://i.ibb.co/Zm6cdnP/news.png",
-      title: "The Ultimate Guide to Blockchain for Business",
+      title: "Empowering SMEs with Embedded Finance",
       details:
         "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
       date: "September 12, 2023",
-      category: "community",
+      category: "academy",
     },
     {
       img: "https://i.ibb.co/Zm6cdnP/news.png",
-      title: "The Ultimate Guide to Blockchain for Business",
+      title: "How to Get FUSE on Ethereum Using Uniswap",
       details:
         "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
       date: "September 12, 2023",
-      category: "community",
+      category: "blockchain",
     },
     {
       img: "https://i.ibb.co/Zm6cdnP/news.png",
-      title: "The Ultimate Guide to Blockchain for Business",
+      title: "The Benefits of FUSE On-Chain Crypto Staking: Unlocking the Future of Digital Assets",
       details:
         "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
       date: "September 12, 2023",
-      category: "community",
+      category: "payments",
+    },
+    {
+      img: "https://i.ibb.co/Zm6cdnP/news.png",
+      title: "What is ERC6900: Enriching Account Abstraction Capabilities",
+      details:
+        "Blockchain technology, which first emerged on the scene in 2009 with the inception of Bitcoin, initially had an aura of uncertainty reminiscent of the early days of PC hacking. It employed a decentralized, peer-to-peer architecture that was seen as too risky for practical business applications. However, the blockchain landscape has significantly transformed since then, particularly in enterprise adoption.",
+      date: "September 12, 2023",
+      category: "developers",
     },
   ];
+
+  const commiunity = news.filter((data) => data.category === "commiunity");
+  const featured = news.filter((data) => data.category === "featured");
+  const newses = news.filter((data) => data.category === "newses");
+  const academy = news.filter((data) => data.category === "academy");
+  const blockchain = news.filter((data) => data.category === "blockchain");
+  const payments = news.filter((data) => data.category === "payments");
+  const developers = news.filter((data) => data.category === "developers");
   return (
     <section className="mt-20 mb-20">
       <Tabs>
@@ -70,56 +86,91 @@ const News = () => {
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
             {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+              <NewsDetails item={item} key={index} />
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {commiunity.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {featured.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {newses.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {academy.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {blockchain.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {payments.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-            {news.map((item, index) => (
-             <NewsDetails item={item} key={index}/>
+            {developers.map((item, index) => (
+              <div className="space-y-5  shadow-md p-5" key={index}>
+                <img className="rounded" src={item.img} alt="" />
+                <h2 className="font-bold text-[18px]">{item.title}</h2>
+                <p className="text-slate-500">{item.details.slice(0, 100)}</p>
+                <p className="text-slate-500 text-[12px]">{item.date}</p>
+              </div>
             ))}
           </div>
         </TabPanel>
