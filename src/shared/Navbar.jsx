@@ -10,11 +10,18 @@ const Navbar = () => {
 
   const navItem = (
     <>
-      <li className="hover:text-[#41ea4f] font-bold">Home</li>
-      <li>News</li>
-      <li>Payment</li>
-      <li>Academy</li>
-      <li>Docs</li>
+      <li className="hover:text-[#41ea4f] font-bold">
+        <Link to="/">Home</Link>
+      </li>
+      <li className="hover:text-[#41ea4f] font-bold">
+        <Link to="/">Payment</Link>
+      </li>
+      <li className="hover:text-[#41ea4f] font-bold">
+        <Link to="/">Academy</Link>
+      </li>
+      <li className="hover:text-[#41ea4f] font-bold">
+        <Link to="/">Docs</Link>
+      </li>
     </>
   );
 
@@ -22,12 +29,12 @@ const Navbar = () => {
     <nav className="w-full bg-white z-10 lg:mx-0">
       <div className="flex justify-between items-center px-0 py-5">
         <div className="flex justify-between w-6/12">
-          <div>
+          <Link to="/">
             <img src={logo} alt="" />
-          </div>
+          </Link>
           <div className="lg:flex hidden">
             <ul className="flex justify-center gap-5 items-center">
-            {navItem}
+              {navItem}
             </ul>
           </div>
         </div>
