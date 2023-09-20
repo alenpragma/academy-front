@@ -22,7 +22,7 @@ const News = () => {
   return (
     <section className="mt-20 mb-20">
       <Tabs>
-        <TabList className="lg:flex flex justify-between text-center">
+        <TabList className="lg:flex grid grid-cols-3 justify-between text-center">
           <Tab className="custom-tab">all</Tab>
           <Tab className="custom-tab">commiunity</Tab>
           <Tab className="custom-tab">featured</Tab>
