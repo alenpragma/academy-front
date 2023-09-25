@@ -12,21 +12,13 @@ const News = () => {
       await axios
         .get("https://academy-backend-95ag.onrender.com/api/v1/blog/getBlog")
         .then((res) => {
-          console.log("====================================");
+          // console.log("====================================");
           setNews(res.data.blogs);
-          console.log("====================================");
+          // console.log("====================================");
         });
     }
     getBlogs();
   }, []);
-
-  const commiunity = news.filter((data) => data.category === "commiunity");
-  const featured = news.filter((data) => data.category === "featured");
-  const newses = news.filter((data) => data.category === "newses");
-  const academy = news.filter((data) => data.category === "academy");
-  const blockchain = news.filter((data) => data.category === "blockchain");
-  const payments = news.filter((data) => data.category === "payments");
-  const developers = news.filter((data) => data.category === "developers");
   return (
     <section className="mt-20 mb-20">
       <Tabs>
@@ -45,7 +37,7 @@ const News = () => {
           <div className="lg:grid grid-cols-3 gap-5">
             {!news
               ? "Loading..."
-              : news.map((item) => <NewsDetails item={item} />)}
+              : news.map((item) => <NewsDetails item={item}  key={item._id}/>)}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
@@ -54,17 +46,7 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "Community" && <NewsDetails item={item} />
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "Featured" && <NewsDetails item={item} />
+                    item.category === "Community" && <NewsDetails item={item}  key={item._id}/>
                 )}
           </div>
         </TabPanel>
@@ -74,7 +56,17 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "News" && <NewsDetails item={item} />
+                    item.category === "Featured" && <NewsDetails item={item}  key={item._id}/>
+                )}
+          </div>
+        </TabPanel>
+        <TabPanel className="custom-tab-panel mt-10">
+          <div className="lg:grid grid-cols-3 gap-5">
+            {!news
+              ? "Loading..."
+              : news.map(
+                  (item) =>
+                    item.category === "News" && <NewsDetails item={item}  key={item._id}/>
                 )}
           </div>
         </TabPanel>
@@ -84,7 +76,7 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "Academy" && <NewsDetails item={item} />
+                    item.category === "Academy" && <NewsDetails item={item}  key={item._id}/>
                 )}
           </div>
         </TabPanel>
@@ -94,7 +86,7 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "Blockchain" && <NewsDetails item={item} />
+                    item.category === "Blockchain" && <NewsDetails item={item}  key={item._id}/>
                 )}
           </div>
         </TabPanel>
@@ -104,7 +96,7 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "Web3 Payments" && <NewsDetails item={item} />
+                    item.category === "Web3 Payments" && <NewsDetails item={item}  key={item._id}/>
                 )}
           </div>
         </TabPanel>
@@ -114,7 +106,7 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "Developers" && <NewsDetails item={item} />
+                    item.category === "Developers" && <NewsDetails item={item} key={item._id} />
                 )}
           </div>
         </TabPanel>

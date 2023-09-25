@@ -38,16 +38,16 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="flex justify-end items-center">
-          <form className="flex justify-end lg:w-6/12 w-6/12 p-2 relative">
+        <div className="flex justify-end items-center w-6/12">
+          <form className="flex justify-end lg:w-6/12 w-3/12 p-2 relative">
             <input
               type="text"
               name=""
               id=""
-              className="border border-black w-52 px-5 py-2 rounded-3xl"
-              placeholder="search"
+              className="lg:w-72 w-40 px-5 py-2 rounded-3xl  outline-none border"
+              placeholder="search..."
             />
-            <FiSearch className="text-[20px] flex items-center justify-center absolute top-0 bottom-0 my-auto right-5 cursor-pointer text-black " />
+            <FiSearch className="text-[20px] flex items-center justify-center absolute top-0 bottom-0 my-auto right-7 cursor-pointer text-[#4ADE80] border-l-2 border-red pl-1" />
           </form>
           <Link to="/">
             <FcGoogle className="text-2xl" />
