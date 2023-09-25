@@ -7,7 +7,7 @@ import SocialMedia from "./SocialMedia";
 
 const Home = () => {
     return (
-        <div>
+        <div className="max-w-6xl lg:mx-auto md:mx-5 mx-5">
             {/* <Date /> */}
             <Hero />
             <News />

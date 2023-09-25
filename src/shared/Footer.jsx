@@ -53,7 +53,7 @@ const Footer = () => {
               <form>
               <Link to="/" className="flex flex-col justify-start gap-3">
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="" className="p-2 w-full bg-slate-100 outline-none border rounded-3xl border-black"/>
+                <input type="email" name="email" id="" className="py-2 px-4 w-full bg-slate-100 outline-none border rounded-3xl border-black"/>
                 <input type="submit" value="Submit" className="bg-[#FF7A59] w-1/2 rounded-3xl p-2 font-semibold hover:text-white"/>
               </Link>
               </form>

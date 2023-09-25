@@ -23,10 +23,10 @@ const News = () => {
     <section className="mt-20 mb-20">
       <Tabs>
         <TabList className="lg:flex grid grid-cols-3 justify-between text-center">
-          <Tab className="custom-tab">all</Tab>
-          <Tab className="custom-tab">commiunity</Tab>
-          <Tab className="custom-tab">featured</Tab>
-          <Tab className="custom-tab">news</Tab>
+          <Tab className="custom-tab">All</Tab>
+          <Tab className="custom-tab">Commiunity</Tab>
+          <Tab className="custom-tab">Featured</Tab>
+          <Tab className="custom-tab">News</Tab>
           <Tab className="custom-tab">Academy</Tab>
           <Tab className="custom-tab">Blockchain</Tab>
           <Tab className="custom-tab">Web3 Payments</Tab>
@@ -39,7 +39,9 @@ const News = () => {
               ? "Loading..."
               : news.map(
                   (item) =>
-                    item.status !== "pending" && <NewsDetails item={item} />
+                    item.status !== "pending" && (
+                      <NewsDetails item={item} key={item._id} />
+                    )
                 )}
           </div>
         </TabPanel>
@@ -49,7 +51,7 @@ const News = () => {
               ? "Loading..."
               : news.map((item) =>
                   item.category === "Community" && item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>
@@ -60,7 +62,7 @@ const News = () => {
               ? "Loading..."
               : news.map((item) =>
                   item.category === "Featured" && item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>
@@ -71,7 +73,7 @@ const News = () => {
               ? "Loading..."
               : news.map((item) =>
                   item.category === "Academy" && item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>
@@ -81,9 +83,8 @@ const News = () => {
             {!news
               ? "Loading..."
               : news.map((item) =>
-                  item.category === "News" &&
-                  item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                  item.category === "News" && item.status !== "pending" ? (
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>
@@ -95,7 +96,7 @@ const News = () => {
               : news.map((item) =>
                   item.category === "Blockchain" &&
                   item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>
@@ -107,7 +108,7 @@ const News = () => {
               : news.map((item) =>
                   item.category === "Web3 Payments" &&
                   item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>
@@ -119,7 +120,7 @@ const News = () => {
               : news.map((item) =>
                   item.category === "Developers" &&
                   item.status !== "pending" ? (
-                    <NewsDetails item={item} />
+                    <NewsDetails item={item} key={item._id} />
                   ) : null
                 )}
           </div>

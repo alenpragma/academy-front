@@ -26,50 +26,52 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="w-full bg-white z-10 lg:mx-0">
-      <div className="flex justify-between items-center px-0 py-5">
-        <div className="flex justify-between w-6/12">
-          <Link to="/">
-            <img src={logo} alt="" />
-          </Link>
-          <div className="lg:flex hidden">
-            <ul className="flex justify-center gap-5 items-center">
-              {navItem}
-            </ul>
+    <nav className="w-full bg-white z-10 lg:mx-0 shadow">
+      <div className="max-w-6xl lg:mx-auto mx-5">
+        <div className="flex justify-between items-center px-0 py-5">
+          <div className="flex justify-between w-6/12">
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
+            <div className="lg:flex hidden">
+              <ul className="flex justify-center gap-5 items-center">
+                {navItem}
+              </ul>
+            </div>
           </div>
-        </div>
-        <div className="flex justify-end items-center w-6/12">
-          <form className="flex justify-end lg:w-6/12 w-3/12 p-2 relative">
-            <input
-              type="text"
-              name=""
-              id=""
-              className="lg:w-72 w-40 px-5 py-2 rounded-3xl  outline-none border"
-              placeholder="search..."
-            />
-            <FiSearch className="text-[20px] flex items-center justify-center absolute top-0 bottom-0 my-auto right-7 cursor-pointer text-[#4ADE80] border-l-2 border-red pl-1" />
-          </form>
-          <Link to="/">
-            <FcGoogle className="text-2xl" />
-          </Link>
-        </div>
-        <div
-          onClick={() => setToggle((previous) => !previous)}
-          className="lg:hidden  md:flex flex-col"
-        >
-          {toggle ? (
-            <VscChromeClose className="text-2xl" />
-          ) : (
-            <FiMenu className="text-2xl" />
-          )}
+          <div className="flex justify-end items-center w-6/12">
+            <form className="flex justify-end lg:w-6/12 w-3/12 p-2 relative">
+              <input
+                type="text"
+                name=""
+                id=""
+                className="lg:w-72 w-40 px-5 py-2 rounded-3xl  outline-none border"
+                placeholder="search..."
+              />
+              <FiSearch className="text-[20px] flex items-center justify-center absolute top-0 bottom-0 my-auto right-7 cursor-pointer text-[#4ADE80] border-l-2 border-red pl-1" />
+            </form>
+            <Link to="/">
+              <FcGoogle className="text-2xl" />
+            </Link>
+          </div>
           <div
-            className={`${
-              toggle ? "scale-y-100" : "scale-y-0"
-            } absolute right-0 left-0 mx-auto top-20 origin-top-right btransition-transform transformg-white duration-200 bg-white`}
+            onClick={() => setToggle((previous) => !previous)}
+            className="lg:hidden  md:flex flex-col"
           >
-            <ul className="flex flex-col gap-8 pb-8 justify-center items-center w-full shadow-md">
-              {navItem}
-            </ul>
+            {toggle ? (
+              <VscChromeClose className="text-2xl" />
+            ) : (
+              <FiMenu className="text-2xl" />
+            )}
+            <div
+              className={`${
+                toggle ? "scale-y-100" : "scale-y-0"
+              } absolute right-0 left-0 mx-auto top-20 origin-top-right btransition-transform transformg-white duration-200 bg-white`}
+            >
+              <ul className="flex flex-col gap-8 pb-8 justify-center items-center w-full shadow-md">
+                {navItem}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
