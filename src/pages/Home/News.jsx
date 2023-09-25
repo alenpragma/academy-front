@@ -81,7 +81,7 @@ const News = () => {
             {!news
               ? "Loading..."
               : news.map((item) =>
-                  item.category === "Blockchain" &&
+                  item.category === "News" &&
                   item.status !== "pending" ? (
                     <NewsDetails item={item} />
                   ) : null
