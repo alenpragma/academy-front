@@ -12,21 +12,13 @@ const News = () => {
       await axios
         .get("https://academy-backend-95ag.onrender.com/api/v1/blog/getBlog")
         .then((res) => {
-          console.log("====================================");
+          // console.log("====================================");
           setNews(res.data.blogs);
-          console.log("====================================");
+          // console.log("====================================");
         });
     }
     getBlogs();
   }, []);
-
-  const commiunity = news.filter((data) => data.category === "commiunity");
-  const featured = news.filter((data) => data.category === "featured");
-  const newses = news.filter((data) => data.category === "newses");
-  const academy = news.filter((data) => data.category === "academy");
-  const blockchain = news.filter((data) => data.category === "blockchain");
-  const payments = news.filter((data) => data.category === "payments");
-  const developers = news.filter((data) => data.category === "developers");
   return (
     <section className="mt-20 mb-20">
       <Tabs>
@@ -78,7 +70,7 @@ const News = () => {
             {!news
               ? "Loading..."
               : news.map((item) =>
-                  item.category === "News" && item.status !== "pending" ? (
+                  item.category === "Academy" && item.status !== "pending" ? (
                     <NewsDetails item={item} />
                   ) : null
                 )}
@@ -89,7 +81,8 @@ const News = () => {
             {!news
               ? "Loading..."
               : news.map((item) =>
-                  item.category === "Academy" && item.status !== "pending" ? (
+                  item.category === "Blockchain" &&
+                  item.status !== "pending" ? (
                     <NewsDetails item={item} />
                   ) : null
                 )}

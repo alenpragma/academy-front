@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const formatDateTime = (createdAt) => {
   const options = {
@@ -23,19 +23,23 @@ const truncateText = (text, maxLength) => {
 };
 
 const NewsDetails = ({ item }) => {
-  console.log(item);
+  // console.log(item);
+  const navigate = useNavigate();
+  const goToNews = (id) => {
+    navigate("/mainNews")
+  }
 
   const truncatedContent = truncateText(item.content, 20);
 
   return (
-    <div className="space-y-5  shadow-md p-5" key={item._id}>
-      <Link>
-        <img className="rounded w-full h-[250px]" src={item.image} alt="" />
-      </Link>
-      <h2 className="font-bold text-[18px] ">
-        <Link to={"/"} className="cursor-pointer ">
+    <div className="space-y-5  shadow-md p-5">
+      <div onClick={() => goToNews(item._id)}>
+        <img className="rounded w-full h-[250px] cursor-pointer" src={item.image} alt="" />
+      </div>
+      <h2 className="font-bold text-[18px]" onClick={() => goToNews(item._id)}>
+        <div className="cursor-pointer ">
           {item.title}
-        </Link>
+        </div>
       </h2>
       <p className="text-slate-500">{truncatedContent}</p>
       <small className="text-slate-500">{item.status === "Post by owner" ? "Post by owner" : item.status === "Post by superadmin" ? "Post by Superadmin" : "Post by Admin"}</small>
