@@ -37,16 +37,9 @@ const News = () => {
           <div className="lg:grid grid-cols-3 gap-5">
             {!news
               ? "Loading..."
-              : news.map((item) => <NewsDetails item={item}  key={item._id}/>)}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
               : news.map(
                   (item) =>
-                    item.category === "Community" && <NewsDetails item={item}  key={item._id}/>
+                    item.status !== "pending" && <NewsDetails item={item} />
                 )}
           </div>
         </TabPanel>
@@ -54,9 +47,10 @@ const News = () => {
           <div className="lg:grid grid-cols-3 gap-5">
             {!news
               ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "Featured" && <NewsDetails item={item}  key={item._id}/>
+              : news.map((item) =>
+                  item.category === "Community" && item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
                 )}
           </div>
         </TabPanel>
@@ -64,49 +58,69 @@ const News = () => {
           <div className="lg:grid grid-cols-3 gap-5">
             {!news
               ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "News" && <NewsDetails item={item}  key={item._id}/>
+              : news.map((item) =>
+                  item.category === "Featured" && item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
                 )}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-          {!news
+            {!news
               ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "Academy" && <NewsDetails item={item}  key={item._id}/>
+              : news.map((item) =>
+                  item.category === "Academy" && item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
                 )}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-          {!news
+            {!news
               ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "Blockchain" && <NewsDetails item={item}  key={item._id}/>
+              : news.map((item) =>
+                  item.category === "News" &&
+                  item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
                 )}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-          {!news
+            {!news
               ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "Web3 Payments" && <NewsDetails item={item}  key={item._id}/>
+              : news.map((item) =>
+                  item.category === "Blockchain" &&
+                  item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
                 )}
           </div>
         </TabPanel>
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
-          {!news
+            {!news
               ? "Loading..."
-              : news.map(
-                  (item) =>
-                    item.category === "Developers" && <NewsDetails item={item} key={item._id} />
+              : news.map((item) =>
+                  item.category === "Web3 Payments" &&
+                  item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
+                )}
+          </div>
+        </TabPanel>
+        <TabPanel className="custom-tab-panel mt-10">
+          <div className="lg:grid grid-cols-3 gap-5">
+            {!news
+              ? "Loading..."
+              : news.map((item) =>
+                  item.category === "Developers" &&
+                  item.status !== "pending" ? (
+                    <NewsDetails item={item} />
+                  ) : null
                 )}
           </div>
         </TabPanel>
