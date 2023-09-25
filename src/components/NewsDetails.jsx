@@ -25,7 +25,7 @@ const truncateText = (text, maxLength) => {
 const NewsDetails = ({ item }) => {
   // console.log(item);
   const navigate = useNavigate();
-  const goToNews = (id) => {
+  const goToNews = () => {
     navigate("/mainNews")
   }
 
@@ -33,11 +33,11 @@ const NewsDetails = ({ item }) => {
 
   return (
     <div className="space-y-5  shadow-md p-5">
-      <div onClick={() => goToNews(item._id)}>
+      <div onClick={() => goToNews()}>
         <img className="rounded w-full h-[250px] cursor-pointer" src={item.image} alt="" />
       </div>
-      <h2 className="font-bold text-[18px]" onClick={() => goToNews(item._id)}>
-        <div className="cursor-pointer ">
+      <h2 className="font-bold text-[18px]" onClick={() => goToNews()}>
+        <div className="cursor-pointer hover:text-[#1779BA] transition duration-300">
           {item.title}
         </div>
       </h2>
