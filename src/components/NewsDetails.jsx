@@ -36,7 +36,7 @@ const NewsDetails = ({ item }) => {
       <div onClick={() => goToNews()} className="overflow-hidden">
         <img
           className="rounded w-full h-[250px] cursor-pointer object-cover hover:scale-110 transition duration-500"
-          src="https://i.ibb.co/3yD78d4/user1.jpg"
+          src={item.image}
           alt=""
         />
       </div>
