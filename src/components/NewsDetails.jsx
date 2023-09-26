@@ -40,13 +40,6 @@ const NewsDetails = ({ item }) => {
           alt=""
         />
       </div>
-      {/* <div class="relative w-64 h-64 overflow-hidden">
-        <img
-          src="https://i.ibb.co/3yD78d4/user1.jpg"
-          alt="Your Image"
-          class="w-full h-full transition-transform transform-gpu hover:scale-110"
-        />
-      </div> */}
       <h2 className="font-bold text-[18px]" onClick={() => goToNews()}>
         <div className="cursor-pointer hover:text-[#1779BA] transition duration-300">
           {item.title}
