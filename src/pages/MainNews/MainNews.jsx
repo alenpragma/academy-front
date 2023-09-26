@@ -71,19 +71,47 @@ const MainNews = () => {
           </div>
         </div>
         <div className="lg:w-1/4">
-          <h2 className="text-[#1779BA] font-bold border-b-2 border-[#1779BA] w-24 pb-2">
+          <h2 className="text-black font-bold border-b-2 border-[#141414] w-24 pb-2">
             Read More...
           </h2>
-          <div className="mt-8">
-            <h2 className="font-semibold text-[20px] hover:text-[#1779BA]">
-              Barind Farmers: At mercy of ‘water lords’{" "}
-            </h2>
-            <div className="grid grid-cols-2 gap-3 mt-3">
-              <p>
-                On April 9, Mukul Soren, a Santal farmer in Rajshahi, drank
-                ....
-              </p>
-              <img className="w-full rounded-md" src="https://i.ibb.co/MkKdwGq/paddy.jpg" alt="" />
+          <div className="mt-8 space-y-5">
+            <div>
+              <h2 className="font-semibold text-[20px] hover:text-[#1779BA]">
+                Barind Farmers: At mercy of ‘water lords’{" "}
+              </h2>
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                <p>
+                  On April 9, Mukul Soren, a Santal farmer in Rajshahi, drank
+                  ....
+                </p>
+                <img
+                  className="w-full rounded-md"
+                  src="https://i.ibb.co/MkKdwGq/paddy.jpg"
+                  alt=""
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                <p>
+                  On April 9, Mukul Soren, a Santal farmer in Rajshahi, drank
+                  ....
+                </p>
+                <img
+                  className="w-full rounded-md"
+                  src="https://i.ibb.co/MkKdwGq/paddy.jpg"
+                  alt=""
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                <p>
+                  On April 9, Mukul Soren, a Santal farmer in Rajshahi, drank
+                  ....
+                </p>
+                <img
+                  className="w-full rounded-md"
+                  src="https://i.ibb.co/MkKdwGq/paddy.jpg"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
