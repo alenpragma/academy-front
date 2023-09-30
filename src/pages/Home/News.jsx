@@ -7,6 +7,7 @@ import axios from "axios";
 
 const News = () => {
   const [news, setNews] = useState([]);
+  const [category, setCategory] = useState([]);
   useEffect(() => {
     async function getBlogs() {
       await axios
@@ -19,20 +20,32 @@ const News = () => {
     }
     getBlogs();
   }, []);
+  useEffect(() => {
+    async function getBlogs() {
+      await axios
+        .get(
+          "https://academy-backend-95ag.onrender.com/api/v1/category/categories"
+        )
+        .then((res) => {
+          // console.log("====================================");
+          setCategory(res.data);
+          // console.log("====================================");
+        });
+    }
+    getBlogs();
+  }, []);
+
+
   return (
     <section className="mt-20 mb-20">
       <Tabs>
-        <TabList className="lg:flex grid grid-cols-3 justify-between text-center">
-          <Tab className="custom-tab">All</Tab>
-          <Tab className="custom-tab">Commiunity</Tab>
-          <Tab className="custom-tab">Featured</Tab>
-          <Tab className="custom-tab">News</Tab>
-          <Tab className="custom-tab">Academy</Tab>
-          <Tab className="custom-tab">Blockchain</Tab>
-          <Tab className="custom-tab">Web3 Payments</Tab>
-          <Tab className="custom-tab">Developers</Tab>
+        <TabList className="grid lg:grid-cols-8 grid-cols-3 justify-between text-center">
+          {category.map((item) => (
+            <Tab className="custom-tab" key={item._id}>
+              {item.name}
+            </Tab>
+          ))}
         </TabList>
-
         <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
             {!news
@@ -45,7 +58,7 @@ const News = () => {
                 )}
           </div>
         </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
+      <TabPanel className="custom-tab-panel mt-10">
           <div className="lg:grid grid-cols-3 gap-5">
             {!news
               ? "Loading..."
