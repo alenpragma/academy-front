@@ -35,11 +35,13 @@ const News = () => {
     getBlogs();
   }, []);
 
-
   return (
     <section className="mt-20 mb-20">
       <Tabs>
         <TabList className="grid lg:grid-cols-8 grid-cols-3 justify-between text-center">
+          <Tab className="custom-tab">
+              All
+            </Tab>
           {category.map((item) => (
             <Tab className="custom-tab" key={item._id}>
               {item.name}
@@ -58,86 +60,22 @@ const News = () => {
                 )}
           </div>
         </TabPanel>
-      <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "Community" && item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "Featured" && item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "Academy" && item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "News" && item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "Blockchain" &&
-                  item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "Web3 Payments" &&
-                  item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
-        <TabPanel className="custom-tab-panel mt-10">
-          <div className="lg:grid grid-cols-3 gap-5">
-            {!news
-              ? "Loading..."
-              : news.map((item) =>
-                  item.category === "Developers" &&
-                  item.status !== "pending" ? (
-                    <NewsDetails item={item} key={item._id} />
-                  ) : null
-                )}
-          </div>
-        </TabPanel>
+        
+        {category.map((category) => (
+          <TabPanel className="custom-tab-panel mt-10">
+            <div className="lg:grid grid-cols-3 gap-5">
+              {!news
+                ? "Loading..."
+                : news.map((item) =>
+                    item.category === category.name &&
+                    item.status !== "pending" ? (
+                      <NewsDetails item={item} key={item._id} />
+                    ) : null
+                  )}
+            </div>
+          </TabPanel>
+        ))}
+       
       </Tabs>
     </section>
   );
