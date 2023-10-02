@@ -3,11 +3,13 @@ import { useLoaderData } from "react-router-dom";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoMdShareAlt } from "react-icons/io";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { blogdata } from "../../slices/blogDataSlice";
 
 
 const MainNews = () => {
   const news = useLoaderData();
+  let disp = useDispatch()
   let data = useSelector((state)=>state)
   console.log('====================================');
   console.log("blogdataaaaaa",data.blogData.blogdata);
@@ -24,6 +26,11 @@ const MainNews = () => {
     };
     return new Date(createdAt).toLocaleDateString(undefined, options);
   };
+  window.addEventListener('popstate',  function(event) {
+    // This function will be called when the back arrow is clicked
+     disp(blogdata(null));
+   
+  });
   return (
     <section className="max-w-6xl lg:mx-auto mt-10 mb-20 mx-5">
       <div className="lg:flex gap-8">
