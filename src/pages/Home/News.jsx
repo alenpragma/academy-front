@@ -42,6 +42,9 @@ const News = () => {
     await disp(blogdata(item));
     navigate("/mainNews");
   }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <section className="mt-20 mb-20">
       <Tabs>

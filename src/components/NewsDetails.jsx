@@ -41,8 +41,8 @@ const NewsDetails = ({ item ,onClick}) => {
           alt=""
         />
       </div>
-      <h2 className="font-bold text-[18px]" onClick={() => goToNews()}>
-        <div className="cursor-pointer hover:text-[#1779BA] transition duration-300">
+      <h2 className="font-bold text-[18px]">
+        <div onClick={onClick} className="cursor-pointer hover:text-[#1779BA] transition duration-300">
           {item.title}
         </div>
       </h2>
