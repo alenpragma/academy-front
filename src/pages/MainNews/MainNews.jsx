@@ -6,8 +6,11 @@ import { IoMdShareAlt } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { blogdata } from "../../slices/blogDataSlice";
 import axios from "axios";
-import adds from "../../assets/image/add-01.png"
+import adds from "../../assets/image/add-01.png";
 const MainNews = () => {
+  const [sliceData, setSliceData] = useState([]);
+  const sideData = sliceData.slice(0, 3);
+
   const news = useLoaderData();
   let disp = useDispatch();
   let data = useSelector((state) => state);
@@ -15,7 +18,6 @@ const MainNews = () => {
   // console.log("blogdataaaaaa", data.blogData.blogdata);
   // console.log("====================================");
   let blog = data.blogData.blogdata;
-  // console.log(blog)
   const formatDateTime = (createdAt) => {
     const options = {
       year: "numeric",
@@ -35,21 +37,23 @@ const MainNews = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const relatedNews = sliceData.filter(
+    (item) => item.category === blog.category
+  );
+  const relatedData = relatedNews.slice(0, 3);
 
-  const [sliceData, setSliceData] = useState([]);
   useEffect(() => {
     async function getBlogs() {
       await axios
         .get("https://academy-backend-95ag.onrender.com/api/v1/blog/getBlog")
         .then((res) => {
           // console.log("====================================");
-          setSliceData(res.data.blogs.slice(0, 3));
+          setSliceData(res.data.blogs);
           // console.log("====================================");
         });
     }
     getBlogs();
   }, []);
-  console.log(sliceData);
   return (
     <section className="max-w-6xl lg:mx-auto mt-10 mb-20 mx-5">
       <div className="lg:flex gap-8">
@@ -96,11 +100,9 @@ const MainNews = () => {
               <h2 className="font-semibold text-[20px] hover:text-[#1779BA]">
                 Barind Farmers: At mercy of ‘water lords’{" "}
               </h2>
-              {sliceData.map((item) => (
+              {sideData.map((item) => (
                 <div className="grid grid-cols-2 gap-3 mt-3">
-                  <p>
-                    {item.title.slice(0, 20)}
-                  </p>
+                  <p>{item.title.slice(0, 20)}</p>
                   <img
                     className="w-full rounded-md"
                     src="https://i.ibb.co/MkKdwGq/paddy.jpg"
@@ -115,6 +117,38 @@ const MainNews = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div>
+        <h2>More On {blog.category} News</h2>
+        <div className="grid grid-cols-4">
+          {relatedData.map((item) => (
+            <div className="space-y-5 hover:shadow-md transition duration-300 p-5">
+              <div className="overflow-hidden">
+                <img
+                  className="rounded w-full h-[250px] cursor-pointer object-cover hover:scale-110 transition duration-500"
+                  src={item.image}
+                  alt=""
+                />
+              </div>
+              <h2 className="font-bold text-[18px]">
+                <div className="cursor-pointer hover:text-[#1779BA] transition duration-300">
+                  {item.title}
+                </div>
+              </h2>
+              {/* <p className="text-slate-500">{truncatedContent}</p> */}
+              {/* <small className="text-slate-500">
+                {item.status === "Post by owner"
+                  ? "Post by owner"
+                  : item.status === "Post by superadmin"
+                  ? "Post by Superadmin"
+                  : "Post by Admin"}
+              </small> */}
+              <p className="text-slate-500 text-[12px]">
+                {formatDateTime(item.createdAt)}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
