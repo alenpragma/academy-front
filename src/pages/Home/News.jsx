@@ -45,12 +45,23 @@ const News = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [more, setMore] = useState(false)
+  const handleMore = () => {
+    setMore(!more)
+  }
+  console.log(more)
   return (
     <section className="mt-20 mb-20">
       <Tabs>
         <TabList className="grid lg:grid-cols-8 grid-cols-3 justify-between text-center">
           <Tab className="custom-tab">All</Tab>
-          {category.map((item) => (
+          {category.slice(0, 6).map((item) => (
+            <Tab className="custom-tab" key={item._id}>
+              {item.name}
+            </Tab>
+          ))}
+          <button className="custom-tab" onClick={handleMore}>more+ ...</button>
+          {more && category.slice(6, 10).map((item) => (
             <Tab className="custom-tab" key={item._id}>
               {item.name}
             </Tab>
