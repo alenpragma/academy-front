@@ -41,10 +41,10 @@ const News = () => {
   let sendBlogData = async (item) => {
     await disp(blogdata(item));
     navigate("/mainNews");
-  }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
   return (
     <section className="mt-20 mb-20">
       <Tabs>
@@ -63,7 +63,11 @@ const News = () => {
               : news.map(
                   (item) =>
                     item.status !== "pending" && (
-                      <NewsDetails  onClick={()=> sendBlogData(item)} item={item} key={item._id} />
+                      <NewsDetails
+                        onClick={() => sendBlogData(item)}
+                        item={item}
+                        key={item._id}
+                      />
                     )
                 )}
           </div>
@@ -81,7 +85,7 @@ const News = () => {
                       item.category === category.name &&
                       item.status !== "pending" ? (
                         <NewsDetails
-                          onClick={()=> sendBlogData(item)}
+                          onClick={() => sendBlogData(item)}
                           item={item}
                           key={item._id}
                         />

@@ -54,6 +54,10 @@ const MainNews = () => {
     }
     getBlogs();
   }, []);
+  const handleData = (item) => {
+    disp(blogdata(item));
+    window.scrollTo({top: 0})
+  }
   return (
     <section className="max-w-6xl lg:mx-auto mt-10 mb-20 mx-5">
       <div className="lg:flex gap-8">
@@ -123,7 +127,7 @@ const MainNews = () => {
         <h2>More On {blog.category} News</h2>
         <div className="grid grid-cols-4">
           {relatedData.map((item) => (
-            <div className="space-y-5 hover:shadow-md transition duration-300 p-5">
+            <div onClick={() => handleData(item)} className="space-y-5 hover:shadow-md transition duration-300 p-5">
               <div className="overflow-hidden">
                 <img
                   className="rounded w-full h-[250px] cursor-pointer object-cover hover:scale-110 transition duration-500"

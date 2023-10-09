@@ -26,9 +26,9 @@ const truncateText = (text, maxLength) => {
 };
 
 const NewsDetails = ({ item ,onClick}) => {
-  let disp = useDispatch()
-  // console.log(item);
-  const navigate = useNavigate();
+  // let disp = useDispatch()
+  // // console.log(item);
+  // const navigate = useNavigate();
 
 
   const truncatedContent = truncateText(item.content, 20);
