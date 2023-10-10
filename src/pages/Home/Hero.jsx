@@ -34,7 +34,7 @@ const Hero = () => {
             <p className="text-slate-500 text-[12px]">{item.createdAt}</p>
           </div>
           <div className="lg:w-1/2">
-            <img className="rounded" src={image} alt="" />
+            <img className="rounded" src={item.image} alt="" />
           </div>
         </div>
       ))}
