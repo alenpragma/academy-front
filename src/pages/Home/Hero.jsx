@@ -18,7 +18,20 @@ const Hero = () => {
     }
     getBlogs();
   }, []);
+
+
   console.log(news)
+  const formatDateTime = (createdAt) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    };
+    return new Date(createdAt).toLocaleDateString(undefined, options);
+  };
   return (
     <section className="mt-10">
       {news.map((item) => (
@@ -34,7 +47,7 @@ const Hero = () => {
             <p className="text-slate-500 text-[12px]">{item.createdAt}</p>
           </div>
           <div className="lg:w-1/2">
-            <img className="rounded" src={item.image} alt="" />
+            <img className="rounded" src={formatDateTime(item.image)} alt="" />
           </div>
         </div>
       ))}
