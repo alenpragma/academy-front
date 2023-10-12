@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { blogdata } from "../slices/blogDataSlice";
 
-
 const formatDateTime = (createdAt) => {
   const options = {
     year: "numeric",
@@ -25,24 +24,28 @@ const truncateText = (text, maxLength) => {
   }
 };
 
-const NewsDetails = ({ item ,onClick}) => {
+const NewsDetails = ({ item, onClick }) => {
   // let disp = useDispatch()
   // // console.log(item);
   // const navigate = useNavigate();
-
 
   const truncatedContent = truncateText(item.content, 20);
   return (
     <div className="space-y-5 hover:shadow-md transition duration-300 p-5">
       <div onClick={onClick} className="overflow-hidden">
-        <img
-          className="rounded w-full h-[250px] cursor-pointer object-cover hover:scale-110 transition duration-500"
-          src={item.image}
-          alt=""
-        />
+        <div className="w-full h-[200px] rounded">
+          <img
+            className="rounded w-full cursor-pointer object-cover hover:scale-110 transition duration-500"
+            src={item.image}
+            alt=""
+          />
+        </div>
       </div>
       <h2 className="font-bold text-[18px]">
-        <div onClick={onClick} className="cursor-pointer hover:text-[#1779BA] transition duration-300">
+        <div
+          onClick={onClick}
+          className="cursor-pointer hover:text-[#1779BA] transition duration-300"
+        >
           {item.title}
         </div>
       </h2>
