@@ -19,8 +19,6 @@ const Hero = () => {
     getBlogs();
   }, []);
 
-
-  console.log(news)
   const formatDateTime = (createdAt) => {
     const options = {
       year: "numeric",
