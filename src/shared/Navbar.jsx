@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo/logo.svg";
 import { FiMenu, FiSearch } from "react-icons/fi";
 import { VscChromeClose } from "react-icons/vsc";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
-  const navItem = (
-    <>
-      <li className="hover:text-[#41ea4f] font-bold">
-        <Link to="/">Home</Link>
-      </li>
-      <li className="hover:text-[#41ea4f] font-bold">
-        <Link to="/">Payment</Link>
-      </li>
-      <li className="hover:text-[#41ea4f] font-bold">
-        <Link to="/">Academy</Link>
-      </li>
-      <li className="hover:text-[#41ea4f] font-bold">
-        <Link to="/">Docs</Link>
-      </li>
-    </>
-  );
+  const [menu, setMenu] = useState([]);
+  useEffect(() => {
+    async function getMenu() {
+      await axios
+        .get(
+          "https://academy-backend-95ag.onrender.com/api/v1/layouts/getnav?fbclid=IwAR3w-fa6B5ZDqBRKZFlki5SWDXcNkbgz44X2ousgiFwFvvtbqcrsRgluh4c"
+        )
+        .then((res) => {
+          // console.log("====================================");
+          setMenu(res.data);
+          // console.log("====================================");
+        });
+    }
+    getMenu();
+  }, []);
+
+  // const navItem = (
+  //   <>
+  //     <li className="hover:text-[#41ea4f] font-bold">
+  //       <Link to="/">Home</Link>
+  //     </li>
+  //     <li className="hover:text-[#41ea4f] font-bold">
+  //       <Link to="/">Payment</Link>
+  //     </li>
+  //     <li className="hover:text-[#41ea4f] font-bold">
+  //       <Link to="/">Academy</Link>
+  //     </li>
+  //     <li className="hover:text-[#41ea4f] font-bold">
+  //       <Link to="/">Docs</Link>
+  //     </li>
+  //   </>
+  // );
 
   return (
     <nav className="w-full bg-white z-10 lg:mx-0 shadow">
@@ -35,7 +52,14 @@ const Navbar = () => {
             </Link>
             <div className="lg:flex hidden">
               <ul className="flex justify-center gap-5 items-center">
-                {navItem}
+                <li className="hover:text-[#41ea4f] font-bold">
+                  <Link to="/">Home</Link>
+                </li>
+                {menu.slice(1, 100).map((item) => (
+                  <li className="hover:text-[#41ea4f] font-bold" key={item._id}>
+                    <Link to={item.name}>{item.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -69,7 +93,14 @@ const Navbar = () => {
               } absolute right-0 left-0 mx-auto top-20 origin-top-right btransition-transform transformg-white duration-200 bg-white`}
             >
               <ul className="flex flex-col gap-8 pb-8 justify-center items-center w-full shadow-md">
-                {navItem}
+                <li className="hover:text-[#41ea4f] font-bold">
+                  <Link to="/">Home</Link>
+                </li>
+                {menu.slice(1, 100).map((item) => (
+                  <li className="hover:text-[#41ea4f] font-bold" key={item._id}>
+                    <Link to={item.name}>{item.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
