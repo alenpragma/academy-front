@@ -44,10 +44,10 @@ const Hero = () => {
             <p className="text-[18px] text-slate-500">
               {item.content.slice(0, 100)}
             </p>
-            <p className="text-slate-500 text-[12px]">{item.createdAt}</p>
+            <p className="text-slate-500 text-[12px]">{formatDateTime(item.createdAt)}</p>
           </div>
           <div className="lg:w-1/2">
-            <img className="rounded" src={formatDateTime(item.image)} alt="" />
+            <img className="rounded" src={item.image} alt="" />
           </div>
         </div>
       ))}

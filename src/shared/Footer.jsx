@@ -11,9 +11,9 @@ const Footer = () => {
           </div>
           <div>
             <ul className="flex flex-col justify-center space-y-4">
-              <Link to="/" className="text-slate-600 hover:text-slate-400">Fuse Network</Link>
+              <Link to="/" className="text-slate-600 hover:text-slate-400">CHT Daily Network</Link>
               <Link to="/" className="text-slate-600 hover:text-slate-400">Mobile Stack</Link>
-              <Link to="/" className="text-slate-600 hover:text-slate-400">Fuse Charge</Link>
+              <Link to="/" className="text-slate-600 hover:text-slate-400">CHT Daily Charge</Link>
               <Link to="/" className="text-slate-600 hover:text-slate-400">Voltage Finance</Link>
             </ul>
           </div>
@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="my-20">
-        <h2>© 2023 Fuse. All Rights Reserved.</h2>
+        <h2>© 2023 CHT Daily. All Rights Reserved.</h2>
       </div>
     </div>
   );
